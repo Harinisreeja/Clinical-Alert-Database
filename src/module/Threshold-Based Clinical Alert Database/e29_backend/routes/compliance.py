@@ -30,7 +30,14 @@ def create_compliance(payload: ComplianceCreate) -> dict:
     if not thresholds_collection().find_one({"threshold_id": payload.threshold_id}):
         raise HTTPException(status_code=400, detail="threshold_id does not exist in Threshold")
     compliance_collection().insert_one(payload.model_dump())
+<<<<<<< HEAD
     return serialize_doc(compliance_collection().find_one({"compliance_id": payload.compliance_id}))
+=======
+    created = compliance_collection().find_one({"compliance_id": payload.compliance_id})
+    if not created:
+        raise HTTPException(status_code=500, detail="Compliance creation verification failed")
+    return serialize_doc(created)
+>>>>>>> b6d27b02ba80f89c4d912f982dc757e736d77ee5
 
 
 @router.get("/reports/compliance-summary")

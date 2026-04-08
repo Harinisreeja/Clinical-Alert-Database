@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python
 __pycache__/
 *.pyc
@@ -20,3 +21,14 @@ Thumbs.db
 
 # Logs
 *.loggit add .gitignore
+=======
+__pycache__/
+*.py[cod]
+
+# Local environment files
+.env
+src/module/Threshold-Based Clinical Alert Database/.env
+
+# Virtual environments
+venv/
+>>>>>>> b6d27b02ba80f89c4d912f982dc757e736d77ee5
