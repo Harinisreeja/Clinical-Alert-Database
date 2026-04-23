@@ -9,7 +9,7 @@ from components.sidebar import sidebar
 from components.charts import patient_line_chart, appointment_donut_chart
 
 
-E29_API_BASE = os.getenv("E29_API_BASE", "http://127.0.0.1:8092/api/e29")
+E29_API_BASE = os.getenv("E29_API_BASE", "http://127.0.0.1:8000/api/e29")
 
 
 def _api_get(path):
@@ -97,7 +97,7 @@ def show_e5_sarah_module(module_name, module_desc):
     reports, rep_err = _api_get("/reports/compliance-summary")
 
     if th_err or cmp_err or esc_err or rep_err:
-        st.warning("Some backend endpoints were unreachable. Ensure E-29 API is running on port 8092.")
+        st.warning("Some backend endpoints were unreachable. Ensure E-29 API is running on port 8000.")
 
     threshold = None
     escalation = None
